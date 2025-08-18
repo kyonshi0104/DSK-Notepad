@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head lang="ja">
+        <title>DSKMemo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="res/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/scrollbar.css">
+        <link rel="stylesheet" href="css/contextmenu.css">
+        <link rel="stylesheet" href="css/dropdown.css">
+        <link rel="stylesheet" href="css/drpw.css">
+        <link rel="stylesheet" href="css/shortcut.css">
+    </head>
+    <body oncontextmenu="return false;">
+        <div id="customMenu" class="context-menu">
+            <div class="menu-item" data-action="undo">元に戻す <span class="shortcut">Ctrl+Z</span></div>
+            <div class="menu-item" data-action="cut">切り取り <span class="shortcut">Ctrl+X</span></div>
+            <div class="menu-item" data-action="copy">コピー <span class="shortcut">Ctrl+C</span></div>
+            <div class="menu-item" data-action="paste" title="ブラウザ仕様により使用できません（⌘+V で貼り付け）">貼り付け <span class="shortcut">Ctrl+V</span></div>
+            <div class="menu-item" data-action="delete">削除 <span class="shortcut">Del</span></div>
+            <div class="menu-item" data-action="selectAll">全て選択 <span class="shortcut">Ctrl+A</span></div>
+            <hr>
+            <div class="menu-item wl" data-action="insertLink" data-showFor="default">リンク挿入 <span class="shortcut">Ctrl+K</span></div>
+            <div class="menu-item wl" data-action="wordSwitch" data-showFor="default">Word Switch <span class="shortcut">Ctrl+W</span></div>
+            <div class="menu-item wl" data-action="removeWordSwitch" data-showFor="wordSwitch">Word Switch解除 <span class="shortcut">Ctrl+Shift+W</span></div>
+            <div class="menu-item wl" data-action="removeInsertLink" data-showFor="link">リンク解除 <span class="shortcut">Ctrl+Shift+K</span></div>
+        </div>
+
+        <div id="fileMenu" class="dropdown-menu hidden">
+            <div data-action="new">新規作成 <span class="shortcut">Ctrl+N</span></div>
+            <div data-action="open">開く <span class="shortcut">Ctrl+O</span></div>
+            <div data-action="save">上書き保存 <span class="shortcut">Ctrl+S</span></div>
+            <div data-action="save-as">名前を付けて保存 <!---<span class="shortcut">Ctrl+Shift+S</span>---></div>
+            <hr>
+            <div data-action="exit">終了</div>
+        </div>
+
+        <div id="editMenu" class="dropdown-menu hidden">
+            <div data-action="undo">元に戻す <span class="shortcut">Ctrl+Z</span></div>
+            <div data-action="cut">切り取り <span class="shortcut">Ctrl+X</span></div>
+            <div data-action="copy">コピー <span class="shortcut">Ctrl+C</span></div>
+            <div data-action="paste">貼り付け <span class="shortcut">Ctrl+V</span></div>
+            <div data-action="delete">削除 <span class="shortcut">Del</span></div>
+            <div data-action="selectAll">全て選択 <span class="shortcut">Ctrl+A</span></div>
+            <hr>
+            <div data-action="insertLink">リンク挿入 <span class="shortcut">Ctrl+K</span></div>
+            <div data-action="wordSwitch">Word Switch <span class="shortcut">Ctrl+W</span></div>
+            <hr>
+            <div data-action="font">フォント</div>
+        </div>
+
+        <div id="viewMenu" class="dropdown-menu hidden">
+            <div data-action="enlarge">拡大 <span class="shortcut">Ctrl+＋ / Ctrl+=</span></div>
+            <div data-action="reduce">縮小 <span class="shortcut">Ctrl+−</span></div>
+            <hr>
+            <div id="f" data-action="fold">右端での折り返し</div>
+        </div>
+
+        <div id="fontDropdown" class="dropdown-menu hidden">
+            <div data-font="sans-serif">ゴシック体（sans-serif）</div>
+            <div data-font="serif">明朝体（serif）</div>
+            <div data-font="MS Gothic">MS ゴシック</div>
+            <div data-font="Yu Gothic">游ゴシック</div>
+            <div data-font="Meiryo">メイリオ</div>
+            <hr>
+            <div id="customFontInput">
+                <label for="fontInput">任意フォント名:</label>
+                <input type="text" id="fontInput" placeholder="例: Arial">
+            </div>
+        </div>
+
+        <header>
+            <div id="file">ファイル</div>
+            <div id="edit">編集</div>
+            <div id="view">表示</div>
+        </header>
+
+        <div id="editor">
+            <div id="field" contenteditable="true"></div>
+        </div>
+
+        <footer>
+            <div id="position">行 1, 列 1</div>
+            <div id="length">0文字</div>
+            <div id="zoom">100%</div>
+            <div id="encoding">UTF-8</div>
+        </footer>
+
+        <script src="js/shortcun_key.js"></script>
+        <script src="js/handler_func.js"></script>
+        <script src="js/wordswitch.js"></script>
+        <script src="js/insertlink.js"></script>
+        <script src="js/contextmenu.js"></script>
+        <script src="js/dropdown.js"></script>
+        <script src="js/fontsave.js"></script>
+        <script src="js/statusbar.js"></script>
+        <script src="js/minor_correction.js"></script>
+        <script src="js/restoreeditorstate.js"></script>
+    </body>
+</html>
